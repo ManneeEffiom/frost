@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frost Events - Icy Glassmorphic Event Centers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/event center.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <i class="fas fa-snowflake"></i>
+        <h1>Frost <span>Events</span></h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search event centers...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <button id="darkModeToggle" class="dark-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+</header>
+
+<div class="container">
+
+<!-- FILTERS (RESTORED) -->
+<div class="filters">
+    <h2>Filter Venues</h2>
+
+    <div class="filter-group">
+        <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+        <div class="filter-options">
+            <div class="filter-option active">Downtown</div>
+            <div class="filter-option">Suburbs</div>
+            <div class="filter-option">Waterfront</div>
+            <div class="filter-option">Rural</div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <h3><i class="fas fa-users"></i> Capacity</h3>
+        <div class="filter-options">
+            <div class="filter-option">Small (&lt;50)</div>
+            <div class="filter-option active">Medium (50-200)</div>
+            <div class="filter-option">Large (200+)</div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT GRID (UPDATED DATA ONLY) -->
+<div class="event-centers">
+
+<!-- 1 -->
+<div class="event-tile" data-id="1" data-link="https://www.dannichotels.com/calabar/booking">
+    <div class="event-image">
+        <img src="dannic exterior.png">
+        <div class="event-type">Hotel</div>
+    </div>
+    <div class="event-info">
+        <h3>Dannic Hotels Calabar</h3>
+        <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Calabar</span>
+        </div>
+        <p>Premium hotel and event center with modern facilities.</p>
+
+        <div class="event-stats">
+            <div class="stat"><div class="stat-value">250</div><div class="stat-label">Capacity</div></div>
+            <div class="stat"><div class="stat-value">4.8</div><div class="stat-label">Rating</div></div>
+            <div class="stat"><div class="stat-value">$120</div><div class="stat-label">per hour</div></div>
+        </div>
+
+        <button class="book-btn">View Details & Book</button>
+    </div>
+</div>
+
+<!-- 2 -->
+<div class="event-tile" data-id="2" data-link="https://www.45group.org/listing/4e6fd765-6be6-4c46-8061-3ee547256a7a">
+    <div class="event-image">
+        <img src="event45 exterior.JPG">
+        <div class="event-type">Event</div>
+    </div>
+    <div class="event-info">
+        <h3>Event45</h3>
+        <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Calabar</span>
+        </div>
+        <p>Modern event venue for all occasions.</p>
+
+        <div class="event-stats">
+            <div class="stat"><div class="stat-value">300</div><div class="stat-label">Capacity</div></div>
+            <div class="stat"><div class="stat-value">4.7</div><div class="stat-label">Rating</div></div>
+            <div class="stat"><div class="stat-value">$200</div><div class="stat-label">per hour</div></div>
+        </div>
+
+        <button class="book-btn">View Details & Book</button>
+    </div>
+</div>
+
+<!-- 3 -->
+<div class="event-tile" data-id="3" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257">
+    <div class="event-image">
+        <img src="channelview exterior.jpg">
+        <div class="event-type">Hotel</div>
+    </div>
+    <div class="event-info">
+        <h3>Channel View Hotels</h3>
+        <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Calabar</span>
+        </div>
+        <p>Luxury hotel with premium event hosting.</p>
+
+        <div class="event-stats">
+            <div class="stat"><div class="stat-value">200</div><div class="stat-label">Capacity</div></div>
+            <div class="stat"><div class="stat-value">4.8</div><div class="stat-label">Rating</div></div>
+            <div class="stat"><div class="stat-value">$220</div><div class="stat-label">per hour</div></div>
+        </div>
+
+        <button class="book-btn">View Details & Book</button>
+    </div>
+</div>
+
+<!-- 4 -->
+<div class="event-tile" data-id="4" data-link="https://bookhotels.ng/hotel/five-two-zero-hotel">
+    <div class="event-image">
+        <img src="520 exterior.jpg">
+        <div class="event-type">Hotel</div>
+    </div>
+    <div class="event-info">
+        <h3>Five Two Zero Hotel</h3>
+        <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Calabar</span>
+        </div>
+        <p>Stylish hotel perfect for events and relaxation.</p>
+
+        <div class="event-stats">
+            <div class="stat"><div class="stat-value">150</div><div class="stat-label">Capacity</div></div>
+            <div class="stat"><div class="stat-value">4.6</div><div class="stat-label">Rating</div></div>
+            <div class="stat"><div class="stat-value">$180</div><div class="stat-label">per hour</div></div>
+        </div>
+
+        <button class="book-btn">View Details & Book</button>
+    </div>
+</div>
+
+<!-- 5 -->
+<div class="event-tile" data-id="5" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257">
+    <div class="event-image">
+        <img src="monty exterior.jpg">
+        <div class="event-type">Hotel</div>
+    </div>
+    <div class="event-info">
+        <h3>Monty Suites Calabar</h3>
+        <div class="event-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Calabar</span>
+        </div>
+        <p>Upscale suites with premium event hosting.</p>
+
+        <div class="event-stats">
+            <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
+            <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
+            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
+        </div>
+
+        <button class="book-btn">View Details & Book</button>
+    </div>
+</div>
+
+</div>
+</div>
+
+ <!-- Frosted Glass Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-snowflake"></i>
+                Frost Events
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2026 Frost Events. All rights reserved. | Find the perfect venue for your special occasions
+        </div>
+    </footer>
+    
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-header">
+                <h2 id="modal-title">Grand Crystal Ballroom</h2>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="modal-location">Downtown • 2 miles away</span>
+                </p>
+            </div>
+            
+            <div class="modal-grid">
+                <div class="modal-image">
+                    <img id="modal-img" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Center">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="detail-group">
+                        <h3><i class="fas fa-info-circle"></i> Description</h3>
+                        <p id="modal-description">Elegant venue with crystal chandeliers and marble floors perfect for weddings and galas. Features a grand staircase, professional lighting, and premium sound system.</p>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <h3><i class="fas fa-star"></i> Features & Amenities</h3>
+                        <div class="amenities">
+                            <div class="amenity">Catering Kitchen</div>
+                            <div class="amenity">Parking (200 spots)</div>
+                            <div class="amenity">Premium Sound System</div>
+                            <div class="amenity">Lighting System</div>
+                            <div class="amenity">Dance Floor</div>
+                            <div class="amenity">WiFi</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <h3><i class="fas fa-chart-bar"></i> Specifications</h3>
+                        <p><strong>Capacity:</strong> Up to 250 guests</p>
+                        <p><strong>Space:</strong> 5,000 sq ft</p>
+                        <p><strong>Price:</strong> $120 per hour (4-hour minimum)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-form">
+                <h3><i class="fas fa-calendar-check"></i> Make a Reservation</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Event Date</label>
+                        <input type="date" id="event-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event-time">Start Time</label>
+                        <select id="event-time">
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>5:00 PM</option>
+                            <option>6:00 PM</option>
+                            <option>7:00 PM</option>
+                            <option>8:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <select id="duration">
+                            <option>2 hours</option>
+                            <option>3 hours</option>
+                            <option>4 hours</option>
+                            <option>5 hours</option>
+                            <option>6 hours</option>
+                            <option>7 hours</option>
+                            <option>8 hours</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" min="1" max="250" placeholder="Enter number of guests">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Your email address">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Special Requests</label>
+                    <input type="text" id="notes" placeholder="Any special requirements or requests">
+                </div>
+                
+                <button class="submit-booking">Complete Reservation</button>
+            </div>
+        </div>
+    </div>
+
+<!-- MODAL (RESTORED) -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-location"></p>
+        <img id="modal-img" style="width:100%; border-radius:10px;">
+        <p id="modal-description"></p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById('bookingModal');
+    const closeModal = document.querySelector('.close-modal');
+    const bookButtons = document.querySelectorAll('.book-btn');
+    const eventTiles = document.querySelectorAll('.event-tile');
+    const toggleBtn = document.getElementById('darkModeToggle');
+
+    /* =========================
+       BOOK BUTTON → EXTERNAL LINK
+    ========================== */
+    bookButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            const tile = this.closest('.event-tile');
+            const link = tile.getAttribute('data-link');
+
+            if (link) {
+                window.open(link, '_blank');
+            }
+        });
+    });
+
+    /* =========================
+       TILE CLICK → MODAL
+    ========================== */
+    eventTiles.forEach(tile => {
+        tile.addEventListener('click', function(e) {
+
+            if (e.target.closest('.book-btn')) return;
+
+            const title = this.querySelector('h3').textContent;
+            const location = this.querySelector('.event-location span').textContent;
+            const description = this.querySelector('p').textContent;
+            const img = this.querySelector('img').src;
+
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-location').textContent = location;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-img').src = img;
+
+            modal.style.display = 'flex';
+        });
+    });
+
+    /* =========================
+       CLOSE MODAL
+    ========================== */
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+
+    /* =========================
+       NAV BUTTONS
+    ========================== */
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert(link.textContent + " page coming soon.");
+        });
+    });
+
+    /* =========================
+       SEARCH
+    ========================== */
+    document.querySelector('.search-container button')
+    .addEventListener('click', () => {
+        const q = document.querySelector('.search-container input').value;
+        alert("Searching for: " + q);
+    });
+
+    /* =========================
+       DARK MODE (FIXED)
+    ========================== */
+    if (toggleBtn) {
+
+        // Load saved state
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+    }
+
+});
+</script>
+</body>
+</html>
