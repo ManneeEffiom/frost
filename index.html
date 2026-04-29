@@ -6,6 +6,96 @@
     <title>Frost Events - Icy Glassmorphic Event Centers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/event center.css">
+    <style>
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .modal-preview {
+            position: relative;
+            min-height: 280px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .image-nav:hover {
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .image-nav.prev {
+            left: 12px;
+        }
+
+        .image-nav.next {
+            right: 12px;
+        }
+
+        .modal-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 10px;
+        }
+
+        .modal-thumbnails img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 14px;
+            cursor: pointer;
+            opacity: 0.8;
+            border: 2px solid transparent;
+            transition: opacity 0.2s ease, border-color 0.2s ease;
+        }
+
+        .modal-thumbnails img:hover,
+        .modal-thumbnails img.active {
+            opacity: 1;
+            border-color: #4dd0ff;
+        }
+
+        @media (max-width: 720px) {
+            .modal-preview {
+                min-height: 220px;
+            }
+
+            .image-nav {
+                width: 34px;
+                height: 34px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -44,7 +134,8 @@
     <div class="filter-group">
         <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
         <div class="filter-options">
-            <div class="filter-option active">Downtown</div>
+            <div class="filter-option active">All</div>
+            <div class="filter-option">Downtown</div>
             <div class="filter-option">Suburbs</div>
             <div class="filter-option">Waterfront</div>
             <div class="filter-option">Rural</div>
@@ -54,8 +145,9 @@
     <div class="filter-group">
         <h3><i class="fas fa-users"></i> Capacity</h3>
         <div class="filter-options">
+            <div class="filter-option active">All</div>
             <div class="filter-option">Small (&lt;50)</div>
-            <div class="filter-option active">Medium (50-200)</div>
+            <div class="filter-option">Medium (50-200)</div>
             <div class="filter-option">Large (200+)</div>
         </div>
     </div>
@@ -65,7 +157,7 @@
 <div class="event-centers">
 
 <!-- 1 -->
-<div class="event-tile" data-id="1" data-link="https://www.dannichotels.com/calabar/booking">
+<div class="event-tile" data-id="1" data-link="https://www.dannichotels.com/calabar/booking" data-images="dannic1.jpeg,dannic2.jpeg,dannic3.jpeg,dannic4.jpeg">
     <div class="event-image">
         <img src="dannic exterior.png">
         <div class="event-type">Hotel</div>
@@ -81,7 +173,7 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">250</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.8</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$120</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦250,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -89,7 +181,7 @@
 </div>
 
 <!-- 2 -->
-<div class="event-tile" data-id="2" data-link="https://www.45group.org/listing/4e6fd765-6be6-4c46-8061-3ee547256a7a">
+<div class="event-tile" data-id="2" data-link="https://www.45group.org/listing/4e6fd765-6be6-4c46-8061-3ee547256a7a" data-images="event451.jpeg,event452.jpeg,event453.jpeg">
     <div class="event-image">
         <img src="event45 exterior.JPG">
         <div class="event-type">Event</div>
@@ -105,7 +197,7 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">300</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.7</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$200</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦250,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -113,7 +205,7 @@
 </div>
 
 <!-- 3 -->
-<div class="event-tile" data-id="3" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257">
+<div class="event-tile" data-id="3" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257" data-images="channel1.jpeg,channel2.jpeg,channel3.jpeg">
     <div class="event-image">
         <img src="channelview exterior.jpg">
         <div class="event-type">Hotel</div>
@@ -129,7 +221,7 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">200</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.8</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$220</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦250,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -137,7 +229,7 @@
 </div>
 
 <!-- 4 -->
-<div class="event-tile" data-id="4" data-link="https://bookhotels.ng/hotel/five-two-zero-hotel">
+<div class="event-tile" data-id="4" data-link="https://bookhotels.ng/hotel/five-two-zero-hotel" data-images="520 exterior.jpg,520 exterior.jpg,520 exterior.jpg,520 exterior.jpg">
     <div class="event-image">
         <img src="520 exterior.jpg">
         <div class="event-type">Hotel</div>
@@ -153,7 +245,7 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">150</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.6</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$180</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦130,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -161,7 +253,7 @@
 </div>
 
 <!-- 5 -->
-<div class="event-tile" data-id="5" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257">
+<div class="event-tile" data-id="5" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257" data-images="monty exterior.jpg,monty exterior.jpg,monty exterior.jpg,monty exterior.jpg">
     <div class="event-image">
         <img src="monty exterior.jpg">
         <div class="event-type">Hotel</div>
@@ -177,7 +269,7 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦130,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -185,7 +277,7 @@
 </div>
 
 <!-- 6 -->
-<div class="event-tile" data-id="5" data-link="https://www.cvent.com/venues/calabar/convention-center/calabar-international-convention-centre/venue-4b993b44-496f-4f3b-9d09-183b748c725c">
+<div class="event-tile" data-id="6" data-link="https://www.cvent.com/venues/calabar/convention-center/calabar-international-convention-centre/venue-4b993b44-496f-4f3b-9d09-183b748c725c" data-images="cicc1.jpeg,cicc2.jpeg,cicc3.jpeg,cicc4.jpeg">
     <div class="event-image">
         <img src="CICC.webp">
         <div class="event-type">Event</div>
@@ -196,12 +288,12 @@
             <i class="fas fa-map-marker-alt"></i>
             <span>Calabar</span>
         </div>
-        <p>Upscale suites with premium event hosting.</p>
+        <p>Premier convention center with expansive halls and modern amenities.</p>
 
         <div class="event-stats">
             <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦130,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -209,7 +301,7 @@
 </div>
 
 <!-- 7 -->
-<div class="event-tile" data-id="5" data-link="https://chopcalabar.com/place?id=59">
+<div class="event-tile" data-id="7" data-link="https://chopcalabar.com/place?id=59" data-images="dome.png,dome.png,dome.png,dome.png">
     <div class="event-image">
         <img src="dome.png">
         <div class="event-type">Event</div>
@@ -220,12 +312,12 @@
             <i class="fas fa-map-marker-alt"></i>
             <span>Calabar</span>
         </div>
-        <p>Upscale suites with premium event hosting.</p>
+        <p>Elegant event space with flexible seating and excellent service.</p>
 
         <div class="event-stats">
             <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦130,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
@@ -233,7 +325,7 @@
 </div>
 
 <!-- 8 -->
-<div class="event-tile" data-id="5" data-link="https://www.transcorphotels.com/transcorp-hotels-calabar-emerges-best-city-hotel-in-nigeria-at-2021-international-travel-awards/">
+<div class="event-tile" data-id="8" data-link="https://www.transcorphotels.com/transcorp-hotels-calabar-emerges-best-city-hotel-in-nigeria-at-2021-international-travel-awards/" data-images="transcorp1.jpeg,transcorp2.jpeg,transcorp3.jpeg,transcorp4.jpeg">
     <div class="event-image">
         <img src="transcorp.webp">
         <div class="event-type">Hotel</div>
@@ -249,36 +341,12 @@
         <div class="event-stats">
             <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
             <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
+            <div class="stat"><div class="stat-value">₦130,000</div><div class="stat-label">per hour</div></div>
         </div>
 
         <button class="book-btn">View Details & Book</button>
     </div>
 </div>
-
-<!-- 5 -->
-<!-- <div class="event-tile" data-id="5" data-link="https://book.travelbookgroup.com/premium/index.html?id_stile=18326&tst_prntz=si&headvar=ok&lingua_int=eng&id_albergo=23781&dc=6257">
-    <div class="event-image">
-        <img src="monty exterior.jpg">
-        <div class="event-type">Hotel</div>
-    </div>
-    <div class="event-info">
-        <h3>Monty Suites Calabar</h3>
-        <div class="event-location">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Calabar</span>
-        </div>
-        <p>Upscale suites with premium event hosting.</p>
-
-        <div class="event-stats">
-            <div class="stat"><div class="stat-value">180</div><div class="stat-label">Capacity</div></div>
-            <div class="stat"><div class="stat-value">4.9</div><div class="stat-label">Rating</div></div>
-            <div class="stat"><div class="stat-value">$210</div><div class="stat-label">per hour</div></div>
-        </div>
-
-        <button class="book-btn">View Details & Book</button>
-    </div>
-</div> -->
 
 </div>
 
@@ -319,8 +387,13 @@
             </div>
             
             <div class="modal-grid">
-                <div class="modal-image">
-                    <img id="modal-img" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Center">
+                <div class="modal-gallery">
+                    <div class="modal-preview">
+                        <button class="image-nav prev" id="modal-prev" type="button">&lsaquo;</button>
+                        <img id="modal-main-image" src="" alt="Event Center Preview">
+                        <button class="image-nav next" id="modal-next" type="button">&rsaquo;</button>
+                    </div>
+                    <div class="modal-thumbnails" id="modal-thumbnails"></div>
                 </div>
                 
                 <div class="modal-details">
@@ -345,7 +418,7 @@
                         <h3><i class="fas fa-chart-bar"></i> Specifications</h3>
                         <p><strong>Capacity:</strong> Up to 250 guests</p>
                         <p><strong>Space:</strong> 5,000 sq ft</p>
-                        <p><strong>Price:</strong> $120 per hour (4-hour minimum)</p>
+                        <p><strong>Price:</strong> ₦120 per hour (4-hour minimum)</p>
                     </div>
                 </div>
             </div>
@@ -420,17 +493,6 @@
         </div>
     </div>
 
-<!-- MODAL (RESTORED) -->
-<div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-location"></p>
-        <img id="modal-img" style="width:100%; border-radius:10px;">
-        <p id="modal-description"></p>
-    </div>
-</div>
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -439,57 +501,145 @@
     const bookButtons = document.querySelectorAll('.book-btn');
     const eventTiles = document.querySelectorAll('.event-tile');
     const toggleBtn = document.getElementById('darkModeToggle');
+    const searchInput = document.querySelector('.search-container input');
+    const searchButton = document.querySelector('.search-container button');
+    const filterOptions = document.querySelectorAll('.filters .filter-option');
+    const filterGroups = document.querySelectorAll('.filter-group');
+    const modalMainImage = document.getElementById('modal-main-image');
+    const modalThumbnails = document.getElementById('modal-thumbnails');
+    const modalPrev = document.getElementById('modal-prev');
+    const modalNext = document.getElementById('modal-next');
+    let activeModalImages = [];
+    let activeModalIndex = 0;
 
-    /* =========================
-       BOOK BUTTON → EXTERNAL LINK
-    ========================== */
-    bookButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
+    const locationMap = [
+        'Downtown', 'Waterfront', 'Waterfront', 'Downtown',
+        'Suburbs', 'Rural', 'Downtown', 'Suburbs'
+    ];
 
-            const tile = this.closest('.event-tile');
-            const link = tile.getAttribute('data-link');
+    eventTiles.forEach((tile, index) => {
+        const location = locationMap[index] || 'Downtown';
+        tile.dataset.location = location;
 
-            if (link) {
-                window.open(link, '_blank');
-            }
+        const capacityValue = tile.querySelector('.stat .stat-value').textContent;
+        const capacity = parseInt(capacityValue.replace(/\D/g, ''), 10) || 0;
+        tile.dataset.capacity = capacity;
+    });
+
+    function getSelectedFilterText(groupIndex) {
+        const group = filterGroups[groupIndex];
+        return group ? group.querySelector('.filter-option.active')?.textContent.trim() : '';
+    }
+
+    function capacityMatches(tile, selectedCapacity) {
+        const capacity = Number(tile.dataset.capacity);
+        if (!selectedCapacity) return true;
+        if (selectedCapacity.includes('Small')) return capacity < 50;
+        if (selectedCapacity.includes('Medium')) return capacity >= 50 && capacity <= 200;
+        if (selectedCapacity.includes('Large')) return capacity >= 200;
+        return true;
+    }
+
+    function updateModalImages(images, index = 0) {
+        activeModalImages = images.map(src => src.trim()).filter(Boolean);
+        activeModalIndex = Math.min(Math.max(index, 0), activeModalImages.length - 1);
+
+        if (!activeModalImages.length) return;
+
+        modalMainImage.src = activeModalImages[activeModalIndex];
+        modalMainImage.alt = `${document.getElementById('modal-title').textContent} image ${activeModalIndex + 1}`;
+
+        modalThumbnails.innerHTML = activeModalImages.map((src, thumbnailIndex) => `
+            <img src="${src}" data-index="${thumbnailIndex}" alt="Thumbnail ${thumbnailIndex + 1}" class="${thumbnailIndex === activeModalIndex ? 'active' : ''}">
+        `).join('');
+
+        modalThumbnails.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                const selectedIndex = Number(img.dataset.index);
+                updateModalImages(activeModalImages, selectedIndex);
+            });
+        });
+    }
+
+    function filterEvents() {
+        const selectedLocation = getSelectedFilterText(0);
+        const selectedCapacity = getSelectedFilterText(1);
+        const query = searchInput.value.trim().toLowerCase();
+
+        eventTiles.forEach(tile => {
+            const location = tile.dataset.location.toLowerCase();
+            const title = tile.querySelector('h3')?.textContent.toLowerCase() || '';
+            const description = tile.querySelector('p')?.textContent.toLowerCase() || '';
+            const venue = tile.querySelector('.event-location span')?.textContent.toLowerCase() || '';
+            const searchMatch = !query || title.includes(query) || description.includes(query) || venue.includes(query);
+
+            const locationMatch = !selectedLocation || selectedLocation.toLowerCase() === 'all' || location === selectedLocation.toLowerCase();
+            const capacityMatch = capacityMatches(tile, selectedCapacity);
+
+            tile.style.display = locationMatch && capacityMatch && searchMatch ? '' : 'none';
+        });
+    }
+
+    filterOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const siblingOptions = option.parentElement.querySelectorAll('.filter-option');
+            siblingOptions.forEach(item => item.classList.remove('active'));
+            option.classList.add('active');
+            filterEvents();
         });
     });
 
-    /* =========================
-       TILE CLICK → MODAL
-    ========================== */
+    bookButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const tile = this.closest('.event-tile');
+            const link = tile.getAttribute('data-link');
+            if (link) window.open(link, '_blank');
+        });
+    });
+
     eventTiles.forEach(tile => {
         tile.addEventListener('click', function(e) {
-
             if (e.target.closest('.book-btn')) return;
 
             const title = this.querySelector('h3').textContent;
             const location = this.querySelector('.event-location span').textContent;
             const description = this.querySelector('p').textContent;
-            const img = this.querySelector('img').src;
+            const images = this.getAttribute('data-images').split(',');
 
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-location').textContent = location;
             document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-img').src = img;
+            updateModalImages(images, 0);
 
             modal.style.display = 'flex';
         });
     });
 
-    /* =========================
-       CLOSE MODAL
-    ========================== */
-    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    if (closeModal) {
+        closeModal.addEventListener('click', () => modal.style.display = 'none');
+    }
+
+    if (modalPrev) {
+        modalPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!activeModalImages.length) return;
+            updateModalImages(activeModalImages, (activeModalIndex - 1 + activeModalImages.length) % activeModalImages.length);
+        });
+    }
+
+    if (modalNext) {
+        modalNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!activeModalImages.length) return;
+            updateModalImages(activeModalImages, (activeModalIndex + 1) % activeModalImages.length);
+        });
+    }
 
     window.addEventListener('click', (e) => {
         if (e.target === modal) modal.style.display = 'none';
     });
 
-    /* =========================
-       NAV BUTTONS
-    ========================== */
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -497,21 +647,29 @@
         });
     });
 
-    /* =========================
-       SEARCH
-    ========================== */
-    document.querySelector('.search-container button')
-    .addEventListener('click', () => {
-        const q = document.querySelector('.search-container input').value;
-        alert("Searching for: " + q);
-    });
+    if (searchButton) {
+        searchButton.addEventListener('click', filterEvents);
+    }
 
-    /* =========================
-       DARK MODE (FIXED)
-    ========================== */
+    if (searchInput) {
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                filterEvents();
+            }
+        });
+    }
+
+    const submitBooking = document.querySelector('.submit-booking');
+    if (submitBooking) {
+        submitBooking.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Reservation request submitted! We'll follow up via email shortly.");
+            modal.style.display = 'none';
+        });
+    }
+
     if (toggleBtn) {
-
-        // Load saved state
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
@@ -529,6 +687,8 @@
             }
         });
     }
+
+    filterEvents();
 
 });
 </script>
